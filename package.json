@@ -1,5 +1,5 @@
 {
-  "name": "my-service",
+  "name": "bookstore",
   "version": "1.0.0",
   "description": "",
   "main": "handler.js",
@@ -13,7 +13,7 @@
       "node_modules/.bin/sequelize db:migrate --config sequelize-config.json"
   },
   "keywords": [],
-  "author": "",
+  "author": "Rahul Barick<libra2rahul@gmail.com>",
   "license": "ISC",
   "dependencies": {
     "aws-sdk": "^2.212.1",
