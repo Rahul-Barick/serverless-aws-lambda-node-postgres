@@ -1,0 +1,55 @@
+# Service Name
+service: book-service
+
+# plugins
+plugins:
+  - serverless-offline
+
+provider:
+  name: aws
+  runtime: nodejs6.10
+  environment: 
+    dbName: 'book'
+    dbUser: 'test'
+    dbPass: 'xyz'
+    dbHost: '0.0.0.0'
+
+# custom
+custom:
+  serverless-offline:
+    babelOptions:
+      presets: ["es2015", "stage-2"]
+
+functions:
+  
+  postBook:
+    handler: handler.postBook
+    name : postBook
+    events:
+      - http:
+          path: book
+          method: post
+    
+  deleteBook:
+    handler: handler.deleteBook
+    name: deleteBook
+    events:
+      - http:
+          path: book/{Id}
+          method: delete
+
+  updateBook:
+    handler: handler.updateBook
+    name: updateBook
+    events:
+      - http:
+          path: book/{Id}
+          method: put
+
+  getAllBooks:
+    handler: handler.getAllBooks
+    name: getAllBooks
+    events:
+      - http:
+          path: book
+          method: get
